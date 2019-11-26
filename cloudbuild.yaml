@@ -1,0 +1,25 @@
+steps:
+
+  # Install node packages
+  - name: 'gcr.io/cloud-builders/npm:current'
+    args: [ 'install' ]
+  
+  # Lint
+  - name: 'gcr.io/cloud-builders/npm:current'
+    args: [ 'run', 'lint' ]
+
+  # Test unit tests
+  #- name: 'gcr.io/cloud-builders/npm:current'
+  #  args: [ 'run', 'test', '--prod', '--no-watch', '--no-progress', '--browsers=ChromeHeadless' ]
+
+  # Test e2e tests
+  #- name: 'gcr.io/cloud-builders/npm:current'
+  #  args: [ 'run', 'e2e', '--prod', '--protractor-config=e2e/protractor.conf.js' ]
+
+  # Build productive files
+  - name: 'gcr.io/cloud-builders/npm:current'
+    args: [ 'run', 'build', '--prod' ]
+
+  # Deploy to google cloud app egnine
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy', '--version=prod']

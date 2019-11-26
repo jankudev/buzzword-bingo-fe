@@ -1,0 +1,5 @@
+<mat-grid-list [cols]="bingo.cols" rowHeight="100px">
+  <mat-grid-tile *ngFor="let it_tile of bingo.tiles">
+    <app-bingo-tile [tile]="it_tile"></app-bingo-tile>
+  </mat-grid-tile>
+</mat-grid-list>
