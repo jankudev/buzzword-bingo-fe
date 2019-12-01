@@ -25,21 +25,32 @@
   <p class="seemore">
     <a href="https://en.wikipedia.org/wiki/Buzzword_bingo" target="_blank"><em>více informací na wikipedia.org</em></a>
   </p>
+  <br />
+  <p>
+    Pro účast v&nbsp;soutěži je potřeba vyplnit do&nbsp;formuláře Váš pracovní ČS email a příběh. Jaký? Zamyslete se a podělte se
+    o&nbsp; příběh z&nbsp;Vaší minulosti v&nbsp;ČS, kdy se Vám nebo Vašemu týmu něco nepovedlo a jaké jste si z&nbsp;toho odnesli ponaučení.
+  </p>
+  <br />
+  <div class="card card-large story">
+    Na projektu Partner24 jsem těsně před releasem nového modulu pro GDPR v rámci code-review zjistil, že mezimodulové volání
+    REST služeb není nijak zabezpečeno. Jednoduchá konfigurace SpringSecurity v modulech zapnula autentizaci/autorizaci. V devu ok, v testech
+    se ověří než bude release, já jedu na dovolenou. Netřeba dodávat, že kolegové o týden později měli perné chvilky.
+    <div class="signature">[T.Janků, Java Chapter-lead]</div>
+  </div>
 
   <!-- Countdown -->
   <div class="card-container" *ngIf="! enabledBingoFlag">
     <countdown units="Hours | Minutes | Seconds"  [end]="dateOfStart" (reached)="enableBingo()"></countdown>
   </div>
 
+  <!-- Registration form -->
+  <h2></h2>
+  <div class="card-container">
+  </div>
+
   <!-- Bingo -->
   <div class="card-container" *ngIf="enabledBingoFlag">
     <app-bingo [bingo]="bingo" fxFlex="1 1 50em"></app-bingo>
-  </div>
-
-  <div class="card-container">
-    <div class="card">
-      test
-    </div>
   </div>
 
 </div>

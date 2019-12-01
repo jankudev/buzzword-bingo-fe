@@ -44,24 +44,23 @@
   border-radius: 4px;
   border: 1px solid #eee;
   background-color: #fafafa;
-  height: 40px;
   width: 200px;
   margin: 0 8px 16px;
   padding: 16px;
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
-  line-height: 24px;
 }
 
 .card-container .card:not(:last-child) {
   margin-right: 0;
 }
 
+.card.card-large {
+  width: 600px;
+}
+
 .card.card-small {
-  height: 16px;
   width: 168px;
 }
 
@@ -75,11 +74,21 @@ p {
 }
 
 p.seemore {
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .spacer {
   flex: 1;
+}
+
+.story {
+  font-size: 12px;
+  font-style: italic;
+}
+
+div.story > div.signature {
+  width: 100%;
+  text-align: right;
 }
 
 /* Responsive Styles */
@@ -91,8 +100,11 @@ p.seemore {
   }
 
   .card {
-    height: 16px;
     margin: 8px 0;
+  }
+
+  .card.card-large {
+    width: 90%;
   }
 }
 
