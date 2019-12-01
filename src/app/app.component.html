@@ -27,8 +27,8 @@
   </p>
 
   <!-- Countdown -->
-  <div class="card-container">
-    <countdown units="Hours | Minutes | Seconds"  end="December 11, 2019" (reached)="enableBingo()"></countdown>
+  <div class="card-container" *ngIf="! enabledBingoFlag">
+    <countdown units="Hours | Minutes | Seconds"  [end]="dateOfStart" (reached)="enableBingo()"></countdown>
   </div>
 
   <!-- Bingo -->
