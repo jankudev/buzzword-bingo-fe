@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {BingoTile} from "../../assets/Bingo";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {BingoTile} from '../../assets/Bingo';
 
 @Component({
   selector: 'app-bingo-tile',
@@ -11,6 +11,8 @@ export class BingoTileComponent implements OnInit {
   @Input()
   tile: BingoTile;
 
+  @Output() tileChange = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
@@ -18,5 +20,6 @@ export class BingoTileComponent implements OnInit {
 
   onClick() {
     this.tile.selected = !this.tile.selected;
+    this.tileChange.emit(this.tile);
   }
 }

@@ -1,15 +1,15 @@
 export class BingoTile {
-  text: String;
-  selected?: boolean = false;
+  text: string;
+  selected ? = false;
 }
 
 export class Bingo {
-  cols: Number = 5;
-  tiles: BingoTile[] = [
-    { text: "Agile"}, {text: 'Scrum'}, {text: 'Craft'}, {text: 'DevOps'}, {text: 'Future bank'},
-    { text: "Agile"}, {text: 'Scrum'}, {text: 'Craft'}, {text: 'DevOps'}, {text: 'Future bank'},
-    { text: "Agile"}, {text: 'Scrum'}, {text: 'Craft'}, {text: 'DevOps'}, {text: 'Future bank'},
-    { text: "Agile"}, {text: 'Scrum'}, {text: 'Craft'}, {text: 'DevOps'}, {text: 'Future bank'},
-    { text: "Agile"}, {text: 'Scrum'}, {text: 'Craft'}, {text: 'DevOps'}, {text: 'Future bank'}
-  ]
+  readonly cols = 5;
+  readonly tiles: BingoTile[] = [
+    { text: 'Agile'}, {text: 'Scrum'}, {text: 'Craft'}, {text: 'DevOps'}, {text: 'Future bank'},
+    { text: 'Agile'}, {text: 'Scrum'}, {text: 'Craft'}, {text: 'DevOps'}, {text: 'Future bank'},
+    { text: 'Agile'}, {text: 'Scrum'}, {text: 'Craft'}, {text: 'DevOps'}, {text: 'Future bank'},
+    { text: 'Agile'}, {text: 'Scrum'}, {text: 'Craft'}, {text: 'DevOps'}, {text: 'Future bank'},
+    { text: 'Agile'}, {text: 'Scrum'}, {text: 'Craft'}, {text: 'DevOps'}, {text: 'Future bank'}
+  ];
 }

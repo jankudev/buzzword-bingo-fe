@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { BingoComponent } from './bingo/bingo.component';
 import { BingoTileComponent } from './bingo-tile/bingo-tile.component';
 
@@ -20,7 +22,8 @@ import { BingoTileComponent } from './bingo-tile/bingo-tile.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatGridListModule,
-    MatButtonModule
+    MatButtonModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

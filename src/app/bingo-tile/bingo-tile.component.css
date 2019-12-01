@@ -1,4 +1,7 @@
 button {
-  width: 10em;
-  height: 10em;
+  width: 14em;
+  height: 5em;
+  word-wrap: break-word;
+  text-align: center;
+  vertical-align: center;
 }
