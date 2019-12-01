@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Bingo } from "../assets/Bingo";
+import { Bingo } from '../assets/Bingo';
 
 @Component({
   selector: 'app-root',
