@@ -8,7 +8,19 @@ import { Bingo } from '../assets/Bingo';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bwbingo-fe';
+  readonly title = 'Buzzword Bingo!';
+  readonly bingo = new Bingo();
+  readonly dateOfStart = new Date('2019-12-11');
 
-  bingo = new Bingo();
+  enabledBingoFlag = this.isBingoEnabled();
+
+  isBingoEnabled(): boolean {
+    return Date.now() > this.dateOfStart.getTime();
+  }
+
+  enableBingo() {
+    this.enabledBingoFlag = true;
+  }
+
+
 }

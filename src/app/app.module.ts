@@ -9,6 +9,8 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { CountdownModule } from 'ng2-date-countdown';
+
 import { BingoComponent } from './bingo/bingo.component';
 import { BingoTileComponent } from './bingo-tile/bingo-tile.component';
 
@@ -23,9 +25,10 @@ import { BingoTileComponent } from './bingo-tile/bingo-tile.component';
     BrowserAnimationsModule,
     MatGridListModule,
     MatButtonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    CountdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
