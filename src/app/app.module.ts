@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatGridListModule } from '@angular/material';
+import {MatFormFieldModule, MatGridListModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -26,7 +26,8 @@ import { BingoTileComponent } from './bingo-tile/bingo-tile.component';
     MatGridListModule,
     MatButtonModule,
     FlexLayoutModule,
-    CountdownModule
+    CountdownModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
