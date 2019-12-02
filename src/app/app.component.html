@@ -49,14 +49,16 @@
   <div class="card-container">
     <form class="registration-form">
       <mat-form-field>
-        <input matInput placeholder="Email" type="email" required email [formControl]="emailFormControl">
+        <input matInput placeholder="Email" type="email" required email [formControl]="emailFormControl"
+               (ngModelChange)="emailChanged($event)">
         <mat-error *ngIf="emailFormControl.hasError('email') || emailFormControl.hasError('pattern') || emailFormControl.hasError('required')">
           Uveďte email v doméně @csas.cz nebo @ext.csas.cz.
         </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <textarea matInput placeholder="FuckUp příběh" rows="6" required [formControl]="fuckUpFormControl"></textarea>
+        <textarea matInput placeholder="FuckUp příběh" rows="6" required [formControl]="fuckUpFormControl"
+                  (ngModelChange)="fuckupChanged($event)"></textarea>
         <mat-error *ngIf="emailFormControl.hasError('required')">
           Podělit se o nějakou životní programátorskou lekci je povinné.
         </mat-error>
