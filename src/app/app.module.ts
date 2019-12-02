@@ -4,8 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatFormFieldModule, MatGridListModule} from '@angular/material';
-import {MatButtonModule} from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -27,7 +31,11 @@ import { BingoTileComponent } from './bingo-tile/bingo-tile.component';
     MatButtonModule,
     FlexLayoutModule,
     CountdownModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

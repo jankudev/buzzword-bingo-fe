@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Bingo, BingoTile} from '../../assets/Bingo';
 
 @Component({
@@ -10,6 +10,8 @@ export class BingoComponent implements OnInit {
 
   @Input()
   bingo: Bingo;
+
+  @Output() isBingoEmitter = new EventEmitter();
 
   constructor() { }
 
@@ -37,7 +39,6 @@ export class BingoComponent implements OnInit {
       }
 
       if (isBingoFlag) {
-        alert('Bingo !!!');
         return true;
       }
     }
@@ -49,17 +50,22 @@ export class BingoComponent implements OnInit {
    * @param changedTile The tile changed
    */
   checkForBingo(changedTile: BingoTile): boolean {
+    let isBingo = false;
+
     // using indices from 0 as in arrays
     if (this.checkForBingoInternal((size: number, row: number, col: number) => ((row * size) + col))) {
-      return true;  // rows
+      isBingo = true;  // rows
+    } else if (this.checkForBingoInternal((size: number, row: number, col: number) => ((col * size) + row))) {
+      isBingo = true;  // columns
+    } else if (this.checkForBingoInternal((size: number, row: number, col: number) => ((col * (size + 1))))) {
+      isBingo = true; // diagonals left->right (code but not runtime optimization)
+    } else {
+      // diagonals right->left (code but not runtime optimization)
+      isBingo = this.checkForBingoInternal((size: number, row: number, col: number) => (((col + 1) * (size - 1))));
     }
-    if (this.checkForBingoInternal((size: number, row: number, col: number) => ((col * size) + row))) {
-      return true;  // columns
-    }
-    if (this.checkForBingoInternal((size: number, row: number, col: number) => ((col * (size + 1))))) {
-      return true; // diagonals left->right (code but not runtime optimization)
-    }
-    // diagonals right->left (code but not runtime optimization)
-    return this.checkForBingoInternal((size: number, row: number, col: number) => (((col + 1) * (size - 1))));
+
+    this.isBingoEmitter.emit(isBingo);
+    return isBingo;
+
   }
 }

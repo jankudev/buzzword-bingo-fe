@@ -14,7 +14,7 @@
   <!-- About the contest -->
   <h2>Soutěž pro Development craft meetup</h2>
   <p>
-    Na&nbsp;těchto stránkách bude v&nbsp;den konání meetupu zpřístupněna soutěž o&nbsp;hodnotné ceny - tzv. <strong>&quot;Buzzword&nbsp;Bingo!&quot;</strong>.
+    Na&nbsp;těchto stránkách bude v&nbsp;den konání meetupu zpřístupněna soutěž o&nbsp;hodnotné ceny - tzv. <strong>&quot;{{ title }}&quot;</strong>.
   </p>
   <br />
   <p>
@@ -33,8 +33,10 @@
   <br />
   <div class="card card-large story">
     Na projektu Partner24 jsem těsně před releasem nového modulu pro GDPR v rámci code-review zjistil, že mezimodulové volání
-    REST služeb není nijak zabezpečeno. Jednoduchá konfigurace SpringSecurity v modulech zapnula autentizaci/autorizaci. V devu ok, v testech
-    se ověří než bude release, já jedu na dovolenou. Netřeba dodávat, že kolegové o týden později měli perné chvilky.
+    REST služeb není nijak zabezpečeno. Jednoduchá konfigurace SpringSecurity v modulech zapnula autentizaci/autorizaci. Provedl jsem test na DEV prostředí
+    a vše se jevilo v pořádku. S bláhovou myšlenkou, že jde jen o změnu konfigurace a že v testech se vše před releasem ještě ověří, jsem odjel na zaslouženou dovolenou.
+    Netřeba dodávat, že kolegové o týden později s přípravou release a nasazením zažili perné chvilky, neboť bez jakýchkoliv velkých změn najednou klíčové REST volání
+    vlivem zapnuté security a specifikům produkčního prostředí přestaly fungovat, přitom z důvodu fallbacku toto nezpůsobovalo chybu aplikace a jen provedlo zalogování.
     <div class="signature">[T.Janků, Java Chapter-lead]</div>
   </div>
 
@@ -45,20 +47,34 @@
 
   <!-- Registration form -->
   <div class="card-container">
-    <form>
+    <form class="registration-form">
       <mat-form-field>
-        <input matInput placeholder="Email" type="email" required>
+        <input matInput placeholder="Email" type="email" required email [formControl]="emailFormControl">
+        <mat-error *ngIf="emailFormControl.hasError('email') || emailFormControl.hasError('pattern') || emailFormControl.hasError('required')">
+          Uveďte email v doméně @csas.cz nebo @ext.csas.cz.
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <textarea matInput placeholder="FuckUp příběh" rows="6" required [formControl]="fuckUpFormControl"></textarea>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Podělit se o nějakou životní programátorskou lekci je povinné.
+        </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
-        <textarea matInput placeholder="FuckUp příběh"></textarea>
-      </mat-form-field>
+      <br />
+
+      <!-- Bingo -->
+      <div *ngIf="enabledBingoFlag">
+        <app-bingo [bingo]="bingo" fxFlex="1 1 50em" fxFlex.xs="1 1 30em" (isBingoEmitter)='handleBingo($event)'></app-bingo>
+      </div>
+
+      <br />
+
+      <!-- Submit -->
+      <button mat-raised-button color="primary" [disabled]="bingoForm.invalid || !isBingo">Odeslat</button>
+
     </form>
-  </div>
-
-  <!-- Bingo -->
-  <div class="card-container" *ngIf="enabledBingoFlag">
-    <app-bingo [bingo]="bingo" fxFlex="1 1 50em"></app-bingo>
   </div>
 
 </div>

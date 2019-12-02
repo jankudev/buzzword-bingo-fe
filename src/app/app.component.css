@@ -91,23 +91,6 @@ div.story > div.signature {
   text-align: right;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 767px) {
-
-  .card-container > *:not(.circle-link) ,
-  .terminal {
-    width: 100%;
-  }
-
-  .card {
-    margin: 8px 0;
-  }
-
-  .card.card-large {
-    width: 90%;
-  }
-}
-
 /* Countdown */
 /deep/ div.countdown {
   border: solid #1976d2 1px;
@@ -117,4 +100,40 @@ div.story > div.signature {
   font-weight: bold;
   margin: 1em;
   text-align: center;
+}
+
+/* Registration form */
+form.registration-form {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+
+form.registration-form mat-form-field {
+  display: contents;
+  width: 600px;
+}
+
+/deep/ mat-error {
+  color: red;
+}
+
+/deep/ input.ng-invalid {
+  color: red;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 599px) {
+
+  .card {
+    margin: 8px 0;
+  }
+
+  .card.card-large {
+    width: 90%;
+  }
+
+  form.registration-form mat-form-field {
+    width: 300px;
+  }
 }

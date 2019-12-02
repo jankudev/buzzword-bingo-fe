@@ -5,3 +5,10 @@ button {
   text-align: center;
   vertical-align: center;
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 599px) {
+  button {
+    font-size: x-small;
+  }
+}
