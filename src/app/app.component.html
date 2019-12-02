@@ -54,7 +54,7 @@
           Uveďte email v doméně @csas.cz nebo @ext.csas.cz.
         </mat-error>
       </mat-form-field>
-      <br />
+
       <mat-form-field>
         <textarea matInput placeholder="FuckUp příběh" rows="6" required [formControl]="fuckUpFormControl"></textarea>
         <mat-error *ngIf="emailFormControl.hasError('required')">
@@ -69,10 +69,9 @@
         <app-bingo [bingo]="bingo" fxFlex="1 1 50em" fxFlex.xs="1 1 30em" (isBingoEmitter)='handleBingo($event)'></app-bingo>
       </div>
 
-      <br />
-
       <!-- Submit -->
-      <button mat-raised-button color="primary" [disabled]="bingoForm.invalid || !isBingo">Odeslat</button>
+      <button *ngIf="enabledBingoFlag" mat-raised-button color="primary"
+              [disabled]="bingoForm.invalid || !isBingo" fxLayoutGap="1em">Odeslat</button>
 
     </form>
   </div>
