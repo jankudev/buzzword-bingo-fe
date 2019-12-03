@@ -12,46 +12,58 @@
 <div class="content" role="main">
 
   <!-- About the contest -->
-  <h2>Soutěž pro Development craft meetup</h2>
+  <h2>Soutěž pro&nbsp;Development craft meetup</h2>
   <p>
     Na&nbsp;těchto stránkách bude v&nbsp;den konání meetupu zpřístupněna soutěž o&nbsp;hodnotné ceny - tzv. <strong>&quot;{{ title }}&quot;</strong>.
   </p>
   <br />
   <p>
-    Buzzword Bingo! se hraje na&nbsp; 5x5, ve&nbsp;kterých je celkem 25 různých buzzwords (předgenerované, ale můžete upravit a použít vlastní slova).
-    V&nbsp;průběhu prezentací pak stačí bedlivě poslouchat a postupně na&nbsp;hracím poli odškrtávat políčka vyslovených buzzwordů.
-    Jakmile získáte řadu 5 (vodorovně, svisle nebo úhlopříčně), stačí kliknout na&nbsp;aktivované tlačítko &quot;Odeslat&quot; a váš ticket předat na&nbsp;slosování.
+    Buzzword Bingo! se hraje na&nbsp;poli 5x5, ve&nbsp;kterých je celkem 25 různých buzzwords (předgenerované, ale
+    můžete upravit a použít vlastní slova).
+    V&nbsp;průběhu prezentací pak stačí bedlivě poslouchat a postupně na&nbsp;hracím poli odškrtávat políčka vyslovených
+    buzzwordů.
+    Jakmile získáte řadu 5 (vodorovně, svisle nebo úhlopříčně), stačí kliknout na&nbsp;aktivované tlačítko &quot;Odeslat&quot;
+    a váš ticket předat na&nbsp;slosování.
   </p>
   <p class="seemore">
-    <a href="https://en.wikipedia.org/wiki/Buzzword_bingo" target="_blank"><em>více informací na wikipedia.org</em></a>
+    <a href="https://en.wikipedia.org/wiki/Buzzword_bingo" target="_blank"><em>více informací na&nbsp;wikipedia.org</em></a>
   </p>
-  <br />
+  <br/>
   <p>
-    Pro účast v&nbsp;soutěži je potřeba vyplnit do&nbsp;formuláře Váš pracovní ČS email a příběh. Jaký? Zamyslete se a
+    Pro&nbsp;účast v&nbsp;soutěži je potřeba vyplnit do&nbsp;formuláře Váš pracovní ČS email a příběh. Jaký? Zamyslete
+    se a
     podělte se
-    o&nbsp; příběh z&nbsp;Vaší minulosti v&nbsp;ČS, kdy se Vám nebo Vašemu týmu něco nepovedlo a jaké jste si z&nbsp;toho
+    o&nbsp; příběh z&nbsp;Vaší minulosti v&nbsp;ČS, kdy se Vám nebo Vašemu týmu něco nepovedlo, a jaké jste si z&nbsp;toho
     odnesli ponaučení.
-    <br/>
-    <em>Formulář se lokálně ukládá, takže jej můžete vyplnit dopředu a přežije i zavření okna na daném zařízení.</em>
   </p>
-  <br />
+  <p class="seemore">
+    <em>Formulář se lokálně ukládá, takže jej můžete vyplnit dopředu a přežije i&nbsp;zavření okna na&nbsp;daném
+      zařízení.</em>
+  </p>
+  <br/>
   <div class="card card-large story">
-    Na projektu Partner24 jsem těsně před releasem nového modulu pro GDPR v rámci code-review zjistil, že mezimodulové
+    Na&nbsp;projektu Partner24 jsem těsně před&nbsp;releasem nového modulu pro&nbsp;GDPR v&nbsp;rámci code-review
+    zjistil, že mezimodulové
     volání
-    REST služeb není nijak zabezpečeno. Jednoduchá konfigurace SpringSecurity v modulech zapnula autentizaci/autorizaci.
-    Provedl jsem test na DEV prostředí
-    a vše se jevilo v pořádku. S bláhovou myšlenkou, že jde jen o změnu konfigurace a že v testech se vše před releasem
-    ještě ověří, jsem odjel na zaslouženou dovolenou.
-    Netřeba dodávat, že kolegové o týden později s přípravou release a nasazením zažili perné chvilky, neboť bez
+    REST služeb není nijak zabezpečeno. Jednoduchá konfigurace SpringSecurity v&nbsp;modulech zapnula
+    autentizaci/autorizaci.
+    Provedl jsem test na&nbsp;DEV prostředí
+    a vše se jevilo v&nbsp;pořádku. S&nbsp;bláhovou myšlenkou, že jde jen o&nbsp;změnu konfigurace a že v testech se vše
+    před releasem
+    ještě ověří, jsem odjel na&nbsp;zaslouženou dovolenou.
+    Netřeba dodávat, že kolegové o&nbsp;týden později s&nbsp;přípravou release a nasazením zažili perné chvilky, neboť
+    bez
     jakýchkoliv velkých změn najednou klíčové REST volání
-    vlivem zapnuté security a specifikům produkčního prostředí přestaly fungovat. Co bylo horší, že i integrace na GDPR
-    modul měla implementován fallback, který v případě nefunkčnosti
-    pouze zalogoval tuto informaci - takže pokud se zrovna nekoukáte do logů (nebo tam je více chyb), unikne to
+    vlivem zapnuté security a specifikům produkčního prostředí přestaly fungovat. Co bylo horší, že i&nbsp;integrace na&nbsp;GDPR
+    modul měla implementován fallback, který v&nbsp;případě nefunkčnosti
+    pouze zalogoval tuto informaci - takže pokud se zrovna nekoukáte do&nbsp;logů (nebo tam je více chyb), unikne to
     pozornosti.
     <br/>
-    A poučení? Některé věci je lepší než na poslední chvíli prostě odložit a udělat/otestovat opravdu důkladně. Taky že
+    A poučení? Některé věci je lepší než na&nbsp;poslední chvíli prostě odložit a udělat/otestovat opravdu důkladně.
+    Taky že
     testovací prostředí je potřeba mít co nejpodobnější
-    produkčnímu. No a v neposlední řadě nejezdit na dovolenou před releasem, když máte v ohni hodně problémové želízko.
+    produkčnímu. No a v&nbsp;neposlední řadě nejezdit na&nbsp;dovolenou před releasem, když máte v&nbsp;ohni hodně
+    problémové želízko.
     <div class="signature">[T.Janků, Java Chapter-lead]</div>
   </div>
 
@@ -80,7 +92,7 @@
                     (ngModelChange)="fuckupChanged($event)"></textarea>
         </label>
         <mat-error *ngIf="emailFormControl.hasError('required')">
-          Podělit se o nějakou životní programátorskou lekci je povinné.
+          Podělit se o&nbsp;nějakou životní programátorskou lekci je povinné.
         </mat-error>
       </mat-form-field>
 
