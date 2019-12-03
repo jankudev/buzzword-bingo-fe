@@ -27,16 +27,31 @@
   </p>
   <br />
   <p>
-    Pro účast v&nbsp;soutěži je potřeba vyplnit do&nbsp;formuláře Váš pracovní ČS email a příběh. Jaký? Zamyslete se a podělte se
-    o&nbsp; příběh z&nbsp;Vaší minulosti v&nbsp;ČS, kdy se Vám nebo Vašemu týmu něco nepovedlo a jaké jste si z&nbsp;toho odnesli ponaučení.
+    Pro účast v&nbsp;soutěži je potřeba vyplnit do&nbsp;formuláře Váš pracovní ČS email a příběh. Jaký? Zamyslete se a
+    podělte se
+    o&nbsp; příběh z&nbsp;Vaší minulosti v&nbsp;ČS, kdy se Vám nebo Vašemu týmu něco nepovedlo a jaké jste si z&nbsp;toho
+    odnesli ponaučení.
+    <br/>
+    <em>Formulář se lokálně ukládá, takže jej můžete vyplnit dopředu a přežije i zavření okna na daném zařízení.</em>
   </p>
   <br />
   <div class="card card-large story">
-    Na projektu Partner24 jsem těsně před releasem nového modulu pro GDPR v rámci code-review zjistil, že mezimodulové volání
-    REST služeb není nijak zabezpečeno. Jednoduchá konfigurace SpringSecurity v modulech zapnula autentizaci/autorizaci. Provedl jsem test na DEV prostředí
-    a vše se jevilo v pořádku. S bláhovou myšlenkou, že jde jen o změnu konfigurace a že v testech se vše před releasem ještě ověří, jsem odjel na zaslouženou dovolenou.
-    Netřeba dodávat, že kolegové o týden později s přípravou release a nasazením zažili perné chvilky, neboť bez jakýchkoliv velkých změn najednou klíčové REST volání
-    vlivem zapnuté security a specifikům produkčního prostředí přestaly fungovat, přitom z důvodu fallbacku toto nezpůsobovalo chybu aplikace a jen provedlo zalogování.
+    Na projektu Partner24 jsem těsně před releasem nového modulu pro GDPR v rámci code-review zjistil, že mezimodulové
+    volání
+    REST služeb není nijak zabezpečeno. Jednoduchá konfigurace SpringSecurity v modulech zapnula autentizaci/autorizaci.
+    Provedl jsem test na DEV prostředí
+    a vše se jevilo v pořádku. S bláhovou myšlenkou, že jde jen o změnu konfigurace a že v testech se vše před releasem
+    ještě ověří, jsem odjel na zaslouženou dovolenou.
+    Netřeba dodávat, že kolegové o týden později s přípravou release a nasazením zažili perné chvilky, neboť bez
+    jakýchkoliv velkých změn najednou klíčové REST volání
+    vlivem zapnuté security a specifikům produkčního prostředí přestaly fungovat. Co bylo horší, že i integrace na GDPR
+    modul měla implementován fallback, který v případě nefunkčnosti
+    pouze zalogoval tuto informaci - takže pokud se zrovna nekoukáte do logů (nebo tam je více chyb), unikne to
+    pozornosti.
+    <br/>
+    A poučení? Některé věci je lepší než na poslední chvíli prostě odložit a udělat/otestovat opravdu důkladně. Taky že
+    testovací prostředí je potřeba mít co nejpodobnější
+    produkčnímu. No a v neposlední řadě nejezdit na dovolenou před releasem, když máte v ohni hodně problémové želízko.
     <div class="signature">[T.Janků, Java Chapter-lead]</div>
   </div>
 
@@ -49,16 +64,21 @@
   <div class="card-container">
     <form class="registration-form">
       <mat-form-field>
-        <input matInput placeholder="Email" type="email" required email [formControl]="emailFormControl"
-               (ngModelChange)="emailChanged($event)">
-        <mat-error *ngIf="emailFormControl.hasError('email') || emailFormControl.hasError('pattern') || emailFormControl.hasError('required')">
+        <label>
+          <input matInput placeholder="Email" type="email" required email [formControl]="emailFormControl"
+                 (ngModelChange)="emailChanged($event)">
+        </label>
+        <mat-error
+          *ngIf="emailFormControl.hasError('email') || emailFormControl.hasError('pattern') || emailFormControl.hasError('required')">
           Uveďte email v doméně @csas.cz nebo @ext.csas.cz.
         </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <textarea matInput placeholder="FuckUp příběh" rows="6" required [formControl]="fuckUpFormControl"
-                  (ngModelChange)="fuckupChanged($event)"></textarea>
+        <label>
+          <textarea matInput placeholder="FuckUp příběh" rows="6" required [formControl]="fuckUpFormControl"
+                    (ngModelChange)="fuckupChanged($event)"></textarea>
+        </label>
         <mat-error *ngIf="emailFormControl.hasError('required')">
           Podělit se o nějakou životní programátorskou lekci je povinné.
         </mat-error>
