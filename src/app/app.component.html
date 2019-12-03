@@ -37,8 +37,8 @@
     odnesli ponaučení.
   </p>
   <p class="seemore">
-    <em>Formulář se lokálně ukládá, takže jej můžete vyplnit dopředu a přežije i&nbsp;zavření okna na&nbsp;daném
-      zařízení.</em>
+    <em>(formulář se lokálně ukládá, takže jej můžete vyplnit dopředu a přežije i&nbsp;zavření okna na&nbsp;daném
+      zařízení)</em>
   </p>
   <br/>
   <div class="card card-large story">
@@ -48,20 +48,19 @@
     REST služeb není nijak zabezpečeno. Jednoduchá konfigurace SpringSecurity v&nbsp;modulech zapnula
     autentizaci/autorizaci.
     Provedl jsem test na&nbsp;DEV prostředí
-    a vše se jevilo v&nbsp;pořádku. S&nbsp;bláhovou myšlenkou, že jde jen o&nbsp;změnu konfigurace a že v testech se vše
+    a vše se jevilo v&nbsp;pořádku. S&nbsp;bláhovou myšlenkou, že jde jen o&nbsp;změnu konfigurace a že v&nbsp;testech
+    se vše
     před releasem
     ještě ověří, jsem odjel na&nbsp;zaslouženou dovolenou.
     Netřeba dodávat, že kolegové o&nbsp;týden později s&nbsp;přípravou release a nasazením zažili perné chvilky, neboť
-    bez
-    jakýchkoliv velkých změn najednou klíčové REST volání
+    bez&nbsp;jakýchkoliv velkých změn najednou klíčové REST volání
     vlivem zapnuté security a specifikům produkčního prostředí přestaly fungovat. Co bylo horší, že i&nbsp;integrace na&nbsp;GDPR
     modul měla implementován fallback, který v&nbsp;případě nefunkčnosti
     pouze zalogoval tuto informaci - takže pokud se zrovna nekoukáte do&nbsp;logů (nebo tam je více chyb), unikne to
     pozornosti.
     <br/>
     A poučení? Některé věci je lepší než na&nbsp;poslední chvíli prostě odložit a udělat/otestovat opravdu důkladně.
-    Taky že
-    testovací prostředí je potřeba mít co nejpodobnější
+    Taky že&nbsp;testovací prostředí je potřeba mít co nejpodobnější
     produkčnímu. No a v&nbsp;neposlední řadě nejezdit na&nbsp;dovolenou před releasem, když máte v&nbsp;ohni hodně
     problémové želízko.
     <div class="signature">[T.Janků, Java Chapter-lead]</div>
