@@ -95,16 +95,20 @@
         </mat-error>
       </mat-form-field>
 
-      <br />
+      <br/>
 
       <!-- Bingo -->
-      <div *ngIf="enabledBingoFlag">
-        <app-bingo [bingo]="bingo" fxFlex="1 1 50em" fxFlex.xs="1 1 30em" (isBingoEmitter)='handleBingo($event)'></app-bingo>
+      <div *ngIf="enabledBingoFlag" class="card-container">
+        <app-bingo [bingo]="bingo" fxFlex="1 1 50em" fxFlex.xs="1 1 30em"
+                   (isBingoEmitter)='handleBingo($event)'></app-bingo>
       </div>
+
+      <br/>
 
       <!-- Submit -->
       <button *ngIf="enabledBingoFlag" mat-raised-button color="primary"
-              [disabled]="bingoForm.invalid || !isBingo" fxLayoutGap="1em">Odeslat</button>
+              [disabled]="bingoForm.invalid || !isBingo">Odeslat
+      </button>
 
     </form>
   </div>
