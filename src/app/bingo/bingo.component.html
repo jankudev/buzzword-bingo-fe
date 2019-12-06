@@ -1,4 +1,4 @@
-<mat-grid-list [cols]="bingo.cols" rowHeight="3em" gutterSize="1px">
+<mat-grid-list [cols]="bingo.cols" rowHeight="2:1" gutterSize="1px">
   <mat-grid-tile *ngFor="let it_tile of bingo.tiles">
     <app-bingo-tile [tile]="it_tile" (tileChange)='checkForBingo($event)'></app-bingo-tile>
   </mat-grid-tile>
