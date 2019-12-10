@@ -5,7 +5,7 @@ import {v4 as uuid} from 'uuid';
 
 @Injectable()
 export class SubmitService {
-  readonly buzzwordBingoApiURL = 'https://34.69.136.241/results';
+  readonly buzzwordBingoApiURL = 'https://buzzword-bingo-proxy.appspot.com/results';
   readonly httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
