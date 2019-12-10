@@ -18,8 +18,11 @@
   </p>
   <br />
   <p>
-    Buzzword Bingo! se hraje na&nbsp;poli 5x5, ve&nbsp;kterých je celkem 25 různých buzzwords (předgenerované, ale
-    můžete upravit a použít vlastní slova).
+    Buzzword Bingo! se hraje na&nbsp;poli 5x5, ve&nbsp;kterých je celkem 25 různých buzzwords (předgenerované
+    <del>, ale
+      můžete upravit a použít vlastní slova
+    </del>
+    <sup>jsem to nestihl, sorry</sup>).
     V&nbsp;průběhu prezentací pak stačí bedlivě poslouchat a postupně na&nbsp;hracím poli odškrtávat políčka vyslovených
     buzzwordů.
     Jakmile získáte řadu 5 (vodorovně, svisle nebo úhlopříčně), stačí kliknout na&nbsp;aktivované tlačítko &quot;Odeslat&quot;
@@ -99,7 +102,7 @@
 
       <!-- Bingo -->
       <div *ngIf="enabledBingoFlag" class="card-container">
-        <app-bingo [bingo]="bingo" fxFlex="1 1 50em" fxFlex.xs="1 1 30em"
+        <app-bingo [bingo]="bingo" fxFlex="1 1 50em" fxFlex.xs="1 1 38em"
                    (isBingoEmitter)='handleBingo($event)'></app-bingo>
       </div>
 
@@ -107,7 +110,7 @@
 
       <!-- Submit -->
       <button *ngIf="enabledBingoFlag" mat-raised-button color="primary"
-              [disabled]="bingoForm.invalid || !isBingo">Odeslat
+              [disabled]="bingoForm.invalid || !isBingo" (click)="submit()">Odeslat
       </button>
 
     </form>

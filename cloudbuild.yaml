@@ -3,7 +3,7 @@ steps:
   # Install node packages
   - name: 'gcr.io/cloud-builders/npm:current'
     args: [ 'install' ]
-  
+
   # Lint
   - name: 'gcr.io/cloud-builders/npm:current'
     args: [ 'run', 'lint' ]
@@ -14,7 +14,7 @@ steps:
 
   # Test e2e tests
   #- name: 'gcr.io/cloud-builders/npm:current'
-  #  args: [ 'run', 'e2e', '--prod', '--protractor-config=e2e/protractor.conf.js' ]
+  #  args: [ 'run', 'e2e', '--prod', '--protractor-submit=e2e/protractor.conf.js' ]
 
   # Build productive files
   - name: 'gcr.io/cloud-builders/npm:current'

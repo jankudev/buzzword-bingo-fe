@@ -29,6 +29,6 @@ div.tile.unselected {
 /* Responsive Styles */
 @media screen and (max-width: 599px) {
   div.tile {
-    font-size: x-small;
+    font-size: smaller;
   }
 }

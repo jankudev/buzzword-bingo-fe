@@ -20,6 +20,7 @@ export class BingoTileComponent implements OnInit {
 
   onClick() {
     this.tile.selected = !this.tile.selected;
+    this.tile.selectedWhen = new Date();
     this.tileChange.emit(this.tile);
   }
 }

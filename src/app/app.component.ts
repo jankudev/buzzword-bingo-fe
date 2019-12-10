@@ -1,22 +1,24 @@
 import {Component, Inject} from '@angular/core';
 
-import { Bingo } from '../assets/Bingo';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {Bingo} from '../assets/Bingo';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
-import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
-import { isStorageAvailable } from 'ngx-webstorage-service';
+import {isStorageAvailable, LOCAL_STORAGE, StorageService} from 'ngx-webstorage-service';
+
+import {SubmitService} from './submit/submit.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [SubmitService]
 })
 export class AppComponent {
   /* constants */
   readonly title = 'Buzzword Bingo!';
   readonly bingo = new Bingo();
-  readonly dateOfStart = new Date('2019-12-11');
+  readonly dateOfStart = new Date('2019-10-11');
   readonly emailPattern = '^[^@]*@(ext.)?csas.cz';
 
   /* form */
@@ -29,9 +31,10 @@ export class AppComponent {
   enabledBingoFlag = this.isBingoEnabled();
   isBingo = false;
 
-  constructor( private formBuilder: FormBuilder,
-               private snackBar: MatSnackBar,
-               @Inject(LOCAL_STORAGE) private storage: StorageService) {
+  constructor(private formBuilder: FormBuilder,
+              private snackBar: MatSnackBar,
+              @Inject(LOCAL_STORAGE) private storage: StorageService,
+              private submitService: SubmitService) {
     this.storageAvailable = isStorageAvailable(sessionStorage);
 
     this.emailFormControl = new FormControl(this.storageAvailable ? this.storage.get('email') : '',
@@ -39,7 +42,6 @@ export class AppComponent {
     this.fuckUpFormControl = new FormControl(this.storageAvailable ? this.storage.get('fuckup') : '',
       [Validators.required]);
     this.bingoForm = formBuilder.group([this.emailFormControl, this.fuckUpFormControl]);
-
   }
 
   isBingoEnabled(): boolean {
@@ -51,9 +53,11 @@ export class AppComponent {
   }
 
   handleBingo(isBingo: boolean) {
+    /*
     if (!this.isBingo && isBingo) {
       this.snackBar.open('👏 Bingo 👏', 'x');
     }
+    */
     this.isBingo = isBingo;
   }
 
@@ -69,5 +73,14 @@ export class AppComponent {
 
   fuckupChanged(fuckup: string) {
     this.storeInLocalStorage('fuckup', fuckup);
+  }
+
+  submit() {
+    if (this.isBingo) {
+      this.submitService.doSubmit(
+        this.emailFormControl.value,
+        this.fuckUpFormControl.value,
+        this.bingo.tiles);
+    }
   }
 }
