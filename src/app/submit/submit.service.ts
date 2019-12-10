@@ -9,7 +9,7 @@ export class SubmitService {
   readonly httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Request-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
     })
   };
 
