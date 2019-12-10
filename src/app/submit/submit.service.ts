@@ -8,8 +8,7 @@ export class SubmitService {
   readonly buzzwordBingoApiURL = 'https://buzzword-bingo-proxy.appspot.com/results';
   readonly httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Request-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+      'Content-Type': 'application/json'
     })
   };
 
