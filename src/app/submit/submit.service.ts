@@ -3,15 +3,15 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BingoTile} from '../../assets/Bingo';
 import {v4 as uuid} from 'uuid';
 
-const buzzwordBingoApiURL = 'http://34.69.136.241/results';
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-};
-
 @Injectable()
 export class SubmitService {
+  readonly buzzwordBingoApiURL = 'http://34.69.136.241/results';
+  readonly httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+
   constructor(private http: HttpClient) {
   }
 
@@ -23,7 +23,6 @@ export class SubmitService {
       tiles
     });
 
-    console.log(result);
-    return this.http.post(buzzwordBingoApiURL, result, httpOptions);
+    return this.http.post(this.buzzwordBingoApiURL, result, this.httpOptions);
   }
 }
