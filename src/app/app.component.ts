@@ -18,7 +18,7 @@ export class AppComponent {
   /* constants */
   readonly title = 'Buzzword Bingo!';
   readonly bingo = new Bingo();
-  readonly dateOfStart = new Date('2019-10-11');
+  readonly dateOfStart = new Date('2019-12-11');
   readonly emailPattern = '^[^@]*@(ext.)?csas.cz';
 
   /* form */
