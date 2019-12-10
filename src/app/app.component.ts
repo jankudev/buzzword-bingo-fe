@@ -18,7 +18,7 @@ export class AppComponent {
   /* constants */
   readonly title = 'Buzzword Bingo!';
   readonly bingo = new Bingo();
-  readonly dateOfStart = new Date('2019-12-11');
+  readonly dateOfStart = new Date('2019-10-11');
   readonly emailPattern = '^[^@]*@(ext.)?csas.cz';
 
   /* form */
@@ -30,6 +30,7 @@ export class AppComponent {
   storageAvailable: boolean;
   enabledBingoFlag = this.isBingoEnabled();
   isBingo = false;
+  showFinalSuccessFlag = false;
 
   constructor(private formBuilder: FormBuilder,
               private snackBar: MatSnackBar,
@@ -76,11 +77,27 @@ export class AppComponent {
   }
 
   submit() {
-    if (this.isBingo) {
-      this.submitService.doSubmit(
-        this.emailFormControl.value,
-        this.fuckUpFormControl.value,
-        this.bingo.tiles);
-    }
+    this.submitService.doSubmit(
+      this.emailFormControl.value,
+      this.fuckUpFormControl.value,
+      this.bingo.tiles)
+      .subscribe(
+        (val) => {
+          console.log('POST successfull', val);
+          this.enabledBingoFlag = false;
+          this.showFinalSuccessFlag = true;
+        },
+        error => {
+          console.log('POST call in error', error);
+          this.handleSubmitError(error);
+        },
+        () => {
+          console.log('POST subscription observable ended');
+        })
+    ;
+  }
+
+  handleSubmitError(error) {
+    alert('Nepodařilo se odeslat na server, ověřte připojení a zkuste to znova.\n\n' + JSON.stringify(error));
   }
 }

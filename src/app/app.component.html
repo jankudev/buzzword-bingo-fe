@@ -76,7 +76,7 @@
 
   <!-- Registration form -->
   <div class="card-container">
-    <form class="registration-form">
+    <form class="registration-form" *ngIf="! showFinalSuccessFlag">
       <mat-form-field>
         <label>
           <input matInput placeholder="Email" type="email" required email [formControl]="emailFormControl"
@@ -114,6 +114,12 @@
       </button>
 
     </form>
+
+    <div class="registration-form" *ngIf="showFinalSuccessFlag">
+      <div class="alert alert-success">
+        Váš BuzzwordBingo ticket byl úspěšně odeslán do&nbsp;slosování. Gratulujeme.
+      </div>
+    </div>
   </div>
 
 </div>
