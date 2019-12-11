@@ -149,11 +149,11 @@ form.registration-form mat-form-field {
 
 @media screen and (max-width: 360px) {
   form.registration-form mat-form-field {
-    width: 350px;
+    width: 340px;
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (min-width: 361px) and (max-width: 375px) {
   form.registration-form mat-form-field {
     width: 368px;
   }

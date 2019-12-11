@@ -4,7 +4,7 @@ import {Bingo, BingoTile} from '../../assets/Bingo';
 @Component({
   selector: 'app-bingo',
   templateUrl: './bingo.component.html',
-  styleUrls: ['./bingo.component-0801.css']
+  styleUrls: ['./bingo.component-0817.css']
 })
 export class BingoComponent implements OnInit {
 
