@@ -22,7 +22,7 @@
     <del>, ale
       můžete upravit a použít vlastní slova
     </del>
-    <sup>jsem to nestihl, sorry</sup>).
+    <sup>jsem to nestihl, sorry, ale refresh generuje nový set</sup>).
     V&nbsp;průběhu prezentací pak stačí bedlivě poslouchat a postupně na&nbsp;hracím poli odškrtávat políčka vyslovených
     buzzwordů.
     Jakmile získáte řadu 5 (vodorovně, svisle nebo úhlopříčně), stačí kliknout na&nbsp;aktivované tlačítko &quot;Odeslat&quot;
@@ -61,7 +61,7 @@
     modul měla implementován fallback, který v&nbsp;případě nefunkčnosti
     pouze zalogoval tuto informaci - takže pokud se zrovna nekoukáte do&nbsp;logů (nebo tam je více chyb), unikne to
     pozornosti.
-    <br/>
+    <br/><br/>
     A poučení? Některé věci je lepší než na&nbsp;poslední chvíli prostě odložit a udělat/otestovat opravdu důkladně.
     Taky že&nbsp;testovací prostředí je potřeba mít co nejpodobnější
     produkčnímu. No a v&nbsp;neposlední řadě nejezdit na&nbsp;dovolenou před releasem, když máte v&nbsp;ohni hodně
@@ -90,7 +90,7 @@
 
       <mat-form-field>
         <label>
-          <textarea matInput placeholder="FuckUp příběh" rows="6" required [formControl]="fuckUpFormControl"
+          <textarea matInput placeholder="Váš FuckUp příběh" rows="6" required [formControl]="fuckUpFormControl"
                     (ngModelChange)="fuckupChanged($event)"></textarea>
         </label>
         <mat-error *ngIf="emailFormControl.hasError('required')">
@@ -117,7 +117,7 @@
 
     <div class="registration-form" *ngIf="showFinalSuccessFlag">
       <div class="alert alert-success">
-        Váš BuzzwordBingo ticket byl úspěšně odeslán do&nbsp;slosování. Gratulujeme.
+        Váš BuzzwordBingo ticket byl úspěšně odeslán do&nbsp;slosování. Díky a gratulujeme.
       </div>
     </div>
   </div>
