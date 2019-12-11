@@ -132,7 +132,7 @@ form.registration-form mat-form-field {
 }
 
 /* Responsive Styles */
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 720px) {
 
   .card {
     margin: 8px 0;
