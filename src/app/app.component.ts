@@ -11,7 +11,7 @@ import {SubmitService} from './submit/submit.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component-0746.css'],
   providers: [SubmitService]
 })
 export class AppComponent {
